@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  :root {
+    /* Warm cream palette inspired by sleep-well-creatives */
+    --background: 45 33% 94%;
+    --foreground: 220 60% 12%;
+
+    --card: 45 30% 96%;
+    --card-foreground: 220 60% 12%;
+
+    --popover: 45 30% 96%;
+    --popover-foreground: 220 60% 12%;
+
+    --primary: 220 70% 22%;
+    --primary-foreground: 45 33% 96%;
+
+    --secondary: 45 25% 88%;
+    --secondary-foreground: 220 60% 12%;
+
+    --muted: 45 20% 90%;
+    --muted-foreground: 220 20% 45%;
+
+    --accent: 220 70% 35%;
+    --accent-foreground: 45 33% 96%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 45 33% 96%;
+
+    --border: 220 20% 82%;
+    --input: 220 20% 85%;
+    --ring: 220 70% 22%;
+
+    --radius: 0.75rem;
+
+    /* Custom properties - Elegant typography */
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-sans: 'DM Sans', system-ui, sans-serif;
+
+    /* Gradient tokens */
+    --gradient-warm: linear-gradient(135deg, hsl(45 33% 94%) 0%, hsl(35 30% 90%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(45 33% 94%) 0%, hsl(40 28% 91%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(220 70% 22%) 0%, hsl(220 60% 35%) 100%);
+
+    /* Shadow tokens */
+    --shadow-sm: 0 2px 8px -2px hsl(220 60% 12% / 0.06);
+    --shadow-md: 0 8px 24px -8px hsl(220 60% 12% / 0.1);
+    --shadow-lg: 0 16px 48px -12px hsl(220 60% 12% / 0.12);
+    --shadow-glow: 0 0 60px -15px hsl(220 70% 22% / 0.25);
+
+    /* Animation tokens */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slower: 800ms cubic-bezier(0.16, 1, 0.3, 1);
+
+    --sidebar-background: 45 30% 96%;
+    --sidebar-foreground: 220 60% 12%;
+    --sidebar-primary: 220 70% 22%;
+    --sidebar-primary-foreground: 45 33% 96%;
+    --sidebar-accent: 45 25% 88%;
+    --sidebar-accent-foreground: 220 60% 12%;
+    --sidebar-border: 220 20% 82%;
+    --sidebar-ring: 220 70% 35%;
+  }
+
+  .dark {
+    --background: 220 25% 6%;
+    --foreground: 45 20% 94%;
+
+    --card: 220 20% 10%;
+    --card-foreground: 45 20% 94%;
+
+    --popover: 220 20% 10%;
+    --popover-foreground: 45 20% 94%;
+
+    --primary: 45 60% 75%;
+    --primary-foreground: 220 25% 6%;
+
+    --secondary: 220 15% 16%;
+    --secondary-foreground: 45 20% 94%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 45 15% 55%;
+
+    --accent: 45 50% 65%;
+    --accent-foreground: 220 25% 6%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 45 20% 94%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 45 60% 75%;
+
+    --sidebar-background: 220 20% 8%;
+    --sidebar-foreground: 45 20% 94%;
+    --sidebar-primary: 45 60% 75%;
+    --sidebar-primary-foreground: 220 25% 6%;
+    --sidebar-accent: 220 15% 16%;
+    --sidebar-accent-foreground: 45 20% 94%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 45 50% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-medium tracking-tight;
+  }
+}
+
+@layer components {
+  /* Grain texture overlay */
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  /* Section container */
+  .section-container {
+    @apply max-w-6xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16;
+  }
+
+  /* Animated underline */
+  .link-underline {
+    @apply relative inline-block;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-px bg-primary origin-bottom-right transition-transform duration-300 scale-x-0;
+  }
+
+  .link-underline:hover::after {
+    @apply origin-bottom-left scale-x-100;
+  }
+
+  /* Project card placeholder */
+  .upload-zone {
+    @apply border-2 border-dashed border-border rounded-xl flex items-center justify-center bg-muted/30 transition-all duration-300;
+  }
+
+  .upload-zone:hover {
+    @apply border-primary/50 bg-muted/50;
+  }
+
+  /* Scroll reveal animation helper */
+  .reveal-up {
+    @apply opacity-0 translate-y-8;
+  }
+
+  .reveal-up.revealed {
+    @apply opacity-100 translate-y-0 transition-all duration-700;
+  }
+
+  /* Hide scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer utilities {
+  /* Typography utilities */
+  .text-display {
+    font-family: var(--font-display);
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.1] tracking-tight;
+  }
+
+  .text-headline {
+    font-family: var(--font-display);
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium leading-tight tracking-tight;
+  }
+
+  .text-subheadline {
+    font-family: var(--font-display);
+    @apply text-lg sm:text-xl md:text-2xl font-normal leading-relaxed;
+  }
+
+  .text-body-lg {
+    @apply text-base sm:text-lg leading-relaxed;
+  }
+
+  .text-body {
+    @apply text-sm sm:text-base leading-relaxed;
+  }
+
+  .text-caption {
+    @apply text-xs sm:text-sm uppercase tracking-[0.2em] font-medium;
+  }
+
+  /* Hover scale */
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-accent);
+  }
+
+  /* Font display utility */
+  .font-display {
+    font-family: var(--font-display);
+  }
+}
