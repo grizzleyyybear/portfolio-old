@@ -33,7 +33,7 @@ const achievements = [
   "Certificate of Recognition at IEEE Tensymp and IEEE AISYWLC, Chennai",
   "Gold Medal for Community work at UMEED NGO",
   "Consistent Academic Excellence: Maintained a strong academic record with notable performance in coursework relevant to computer science and engineering",
-  "Secured a rank of 54683 in JEE (Mains)",
+  
 ];
 
 const Experience = () => {
