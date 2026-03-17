@@ -65,7 +65,7 @@ const About = () => {
                 </p>
                 <p className="text-sm text-muted-foreground">2023 - 2027</p>
                 <p className="text-sm font-medium text-primary mt-2">
-                  CGPA: 7.41
+                  CGPA: 7.53
                 </p>
               </motion.div>
 
