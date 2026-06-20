@@ -14,12 +14,7 @@ const Contact = () => {
       value: "mrinalsharmajune13@gmail.com",
       href: "mailto:mrinalsharmajune13@gmail.com",
     },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+91 7678502995",
-      href: "tel:+917678502995",
-    },
+    
     {
       icon: Github,
       label: "GitHub",
